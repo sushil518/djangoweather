@@ -1,5 +1,24 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Hello World!!!</h1>
+<br />
+<!-- {{ api.data }}<br /><br />
+Air Quality: {{ api.data.current.weather }}<br />
 
-{% endblock %}
+Aqius: {{ api.data.current.pollution.aqius}}<br />
+
+Area: {{ api.data.city }} <br />
+-->
+
+{% if api %} {% if api == "Error..." %} There was an error, please try again...
+{% else %}
+
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <p>Air Quality: {{ api.data.current.weather }}</p>
+    <p>Aqius: {{ api.data.current.pollution.aqius}}<br /></p>
+    <p>Area: {{ api.data.city }}</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">weather api</figcaption>
+</figure>
+
+{% endif %} {% endif %} {% endblock %}
